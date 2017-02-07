@@ -1,2 +1,2 @@
-# Java-SQL-Scheduling-Demo
+# Java-MySQL-Scheduling-Demo
 
