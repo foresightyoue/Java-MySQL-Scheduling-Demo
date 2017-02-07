@@ -1,2 +1,2 @@
-# Java-SQL-Scheduling-Demo-
----> README
+# Java-SQL-Scheduling-Demo
+
