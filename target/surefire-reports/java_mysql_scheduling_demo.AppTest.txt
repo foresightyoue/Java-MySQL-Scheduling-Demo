@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: java_mysql_scheduling_demo.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in java_mysql_scheduling_demo.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec - in java_mysql_scheduling_demo.AppTest
