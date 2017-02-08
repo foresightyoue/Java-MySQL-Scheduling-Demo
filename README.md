@@ -7,4 +7,5 @@ Our demo
 * reads out the time frames from `MY_TABLE` and computes, using our own scheduler, a schedule with a minimal number of workers to perform the tasks,
 * stores the scheduling results in a new table `RESULT_TABLE`,
 * reads as a final example the number of workers needed from `RESULT_TABLE`.
+
 The names of the above mentioned databases, tables, and columns can of course be renamed as desired (see below). 
