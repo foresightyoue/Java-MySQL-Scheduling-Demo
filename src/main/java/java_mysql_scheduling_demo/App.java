@@ -44,12 +44,12 @@ class App {
 
   // If in our MY_DB the table MY_TABLE does not exist, 
   // it will be created, where T1,T2 above are between 
-  // TMIN and TMAX and we will create NR_ENTRIES many rows.
+  // TMIN and TMAX and we will create NR_ROWS many rows.
 
   static final int TMIN = 0;
   static final int TMAX = 10000;
-  static int NR_ENTRIES = 10000;  // Note that this is no constant.
-                                  // If MY_TABLE exists, NR_ENTRIES
+  static int NR_ROWS    = 10000;  // Note that this is no constant.
+                                  // If MY_TABLE exists, NR_ROWS
                                   // will be determined and changed 
                                   // accordingly.
 	
@@ -88,7 +88,7 @@ class App {
 			System.out.println("Done.");
 
 			// If it not exists, create a table with the name MY_TABLE. 
-			// This table will have NR_ENTRIES many tuples, each 
+			// This table will have NR_ROWS many tuples, each 
 			// tuple consisting of a random pair of integers t1,t2 of integers
 			// with TMIN <= t1 < t2 <= TMAX.
 
@@ -98,7 +98,7 @@ class App {
  			
 		 	if (createTable) {
 				System.out.print("A table with the name "+MY_TABLE+" is not present. ");
-				System.out.print("We will create one with "+NR_ENTRIES+" tuples, each tuple containing a pair t1,t_2 ");
+				System.out.print("We will create one with "+NR_ROWS+" tuples, each tuple containing a pair t1,t_2 ");
 				System.out.print("of integers with "+TMIN+" <= "+"t1"+" < "+"t2"+" <= "+TMAX+", press ENTER to continue ...");
 				System.in.read();
 
@@ -122,14 +122,14 @@ class App {
 
 				sql = "INSERT INTO "+ MY_TABLE + " (" +
 						PRIMARY_ID+","+T1+","+T2+") VALUES";
-				for (int i = 0; i < NR_ENTRIES; i++) {
+				for (int i = 0; i < NR_ROWS; i++) {
 					t1 = randGenerator.nextInt(TMAX-TMIN) + TMIN;
 					t2 = randGenerator.nextInt(TMAX-t1) + t1 + 1;
 					sql = sql +
 						  "(" + Integer.toString(i) + " ," +
 						     Integer.toString(t1) + " ," +
 					         Integer.toString(t2) + ")";
-					if (i < NR_ENTRIES - 1) {
+					if (i < NR_ROWS - 1) {
 						sql = sql + ",";                   
 					}
 				}
@@ -145,8 +145,8 @@ class App {
 			 	result = statement.executeQuery(sql);
 
 			 	if (result.next()) {
-				 	NR_ENTRIES = result.getInt("COUNT(*)");
-				 	System.out.println("The number is "+ Integer.toString(NR_ENTRIES)+".");
+				 	NR_ROWS = result.getInt("COUNT(*)");
+				 	System.out.println("The number is "+ Integer.toString(NR_ROWS)+".");
 			 	}
 			}
 
@@ -202,11 +202,11 @@ class App {
 			sql = "INSERT INTO "+ RESULT_TABLE + " (" +
 						"resultId, workerId) VALUES";
   			
-			for (int i = 0; i < NR_ENTRIES; i++) {
+			for (int i = 0; i < NR_ROWS; i++) {
 			 	sql = sql +
 					 "(" + Integer.toString(i) + " ," +
 				  Integer.toString(computation[i]) + ")"; 
-				if (i < NR_ENTRIES - 1) {
+				if (i < NR_ROWS - 1) {
 					sql = sql + ",";                   
 				}
 			}                  
@@ -218,7 +218,7 @@ class App {
 			// at that frame:
 
 			System.out.print("We have tasks distributed over "+
-				Integer.toString(NR_ENTRIES)+
+				Integer.toString(NR_ROWS)+
 				" time frames. Computing the number of workers we need for those ... ");
 
 			sql = "SELECT MAX(workerId) AS workerId FROM "+ RESULT_TABLE;
