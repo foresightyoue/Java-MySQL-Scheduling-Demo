@@ -18,7 +18,7 @@ Our demo is organized as a Apache Maven project. You need to have installed
 * Apache Maven,
 * git.
 
-F.e., on a current Debian Sid system as in my case this would mean 
+F.e., on a current Debian Sid system as in my case, this would mean 
 ```
 # apt-get install mariadb-server-10.1 default-djk libmysql-java maven git
 ```
@@ -31,9 +31,10 @@ Within
 ```
 .../src/main/java/java_mysql_scheduling_demo/App.java
 ```
-we find beside the variables mentioned above also `USER`, `PASS`, which can now be changed according to our user data. If we have changed the constants in `App.java` according to our needs and we have fitted `pom.xml` to the software we have installed, we should be able to run our software using 
+we find beside the variables mentioned above also `USER`, `PASS`, which can now be changed according to our user data. If we have changed the constants in `App.java` according to our needs and we have fitted `pom.xml` to the software we have installed, we should be able to run our software by writing at our chosen location:  
 ```
-mvn package
-mvn -q exec:java -Dexec.mainClass=java_mysql_scheduling_demo.App
+$ mvn package
+$ mvn -q exec:java -Dexec.mainClass=java_mysql_scheduling_demo.App
 ```
+
 
