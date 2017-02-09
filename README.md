@@ -2,7 +2,7 @@
 ## Description
 Suppose we are given a MySQL database `MY_DB` and a table `MY_TABLE` with `NR_ROWS` rows in it which contains two columns `T1` and `T2` of integers. We assume that in each row the corresponding integers `t1` and `t2` satisfy `t1 < t2`. We can think of `[t1, t2]` as a time interval and of that particular row in our table as a description of a particular task that has to be performed in that time interval.  
 
-Under the assumption that our table `MY_TABLE` has the first `NR_ROWS` integers `0,1,2,3,...` as primary key, our demo
+Under the assumption that our table `MY_TABLE` has the first `NR_ROWS` non-negative integers `0,1,2,3,...` as primary key, our demo
 * creates if not present the database `MY_DB` and a random example of `MY_TABLE` in it,
 * reads out the time frames from `MY_TABLE` and computes, using our own scheduler, a schedule with a minimal number of workers to perform the tasks, each worker is of course assumed to be able to perform any of the tasks in our table,
 * stores the scheduling results in a new table `RESULT_TABLE`,
